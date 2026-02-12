@@ -6,5 +6,7 @@
 *.exp
 *.lib
 *.exe
+*.pdb
+*.ilk
 
 /objects/
