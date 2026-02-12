@@ -1,0 +1,17 @@
+*.pak
+*.vdf
+maps.lst
+save/
+music/
+video/
+players/
+maps/*.bsp
+pics/
+sound/
+sprites/
+textures/
+!config.cfg
+*.cfg
+demos/
+env/
+models/
