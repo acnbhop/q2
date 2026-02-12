@@ -3,6 +3,30 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
+Project: "bsp"=.\tools\bsp\bsp.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "bspinfo3"=.\tools\bsp\bspinfo3\bspinfo3.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
 Project: "ctf"=.\ctf\ctf.dsp - Package Owner=<4>
 
 Package=<5>
@@ -27,7 +51,67 @@ Package=<4>
 
 ###############################################################################
 
+Project: "qbsp3"=.\tools\bsp\qbsp3\qbsp3.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "qdata"=.\tools\qdata\qdata.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "qe3"=.\tools\qe4\qe4.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "qrad3"=.\tools\bsp\qrad3\qrad3.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
 Project: "quake2"=.\quake2.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "qvis3"=.\tools\bsp\qvis3\qvis3.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -52,6 +136,18 @@ Package=<4>
 ###############################################################################
 
 Project: "ref_soft"=.\ref_soft\ref_soft.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "texpaint"=.\tools\texpaint\texpaint.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
