@@ -1,2 +1,10 @@
 *.ncb
 *.plg
+*.opt
+
+*.dll
+*.exp
+*.lib
+*.exe
+
+/objects/
