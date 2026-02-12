@@ -3,9 +3,8 @@
 # ** DO NOT EDIT **
 
 # TARGTYPE "Win32 (x86) Dynamic-Link Library" 0x0102
-# TARGTYPE "Win32 (ALPHA) Dynamic-Link Library" 0x0602
 
-CFG=ref_soft - Win32 Debug Alpha
+CFG=ref_soft - Win32 Release Alpha
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
@@ -14,20 +13,21 @@ CFG=ref_soft - Win32 Debug Alpha
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "ref_soft.mak" CFG="ref_soft - Win32 Debug Alpha"
+!MESSAGE NMAKE /f "ref_soft.mak" CFG="ref_soft - Win32 Release Alpha"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
 !MESSAGE "ref_soft - Win32 Release" (based on "Win32 (x86) Dynamic-Link Library")
 !MESSAGE "ref_soft - Win32 Debug" (based on "Win32 (x86) Dynamic-Link Library")
-!MESSAGE "ref_soft - Win32 Debug Alpha" (based on "Win32 (ALPHA) Dynamic-Link Library")
-!MESSAGE "ref_soft - Win32 Release Alpha" (based on "Win32 (ALPHA) Dynamic-Link Library")
 !MESSAGE 
 
 # Begin Project
 # PROP AllowPerConfigDependencies 0
 # PROP Scc_ProjName ""
 # PROP Scc_LocalPath ""
+CPP=cl.exe
+MTL=midl.exe
+RSC=rc.exe
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
@@ -38,17 +38,14 @@ CFG=ref_soft - Win32 Debug Alpha
 # PROP BASE Target_Dir "."
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "..\release"
-# PROP Intermediate_Dir ".\release"
+# PROP Output_Dir "..\"
+# PROP Intermediate_Dir "..\objects\release\ref_gl"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir "."
-CPP=cl.exe
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /c
 # ADD CPP /nologo /G5 /MT /W4 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /c
-MTL=midl.exe
 # ADD BASE MTL /nologo /D "NDEBUG" /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
-RSC=rc.exe
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
 BSC32=bscmake.exe
@@ -56,7 +53,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /machine:I386
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winmm.lib /nologo /subsystem:windows /dll /machine:I386
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winmm.lib /nologo /subsystem:windows /dll /machine:I386 /out:"..\ref_soft_release.dll"
 # SUBTRACT LINK32 /debug
 
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
@@ -68,17 +65,14 @@ LINK32=link.exe
 # PROP BASE Target_Dir "."
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 1
-# PROP Output_Dir "..\debug"
-# PROP Intermediate_Dir ".\debug"
+# PROP Output_Dir "..\"
+# PROP Intermediate_Dir "..\objects\debug\ref_soft"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir "."
-CPP=cl.exe
 # ADD BASE CPP /nologo /MTd /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /c
 # ADD CPP /nologo /G5 /MTd /W3 /Gm /GX /ZI /Od /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /FR /YX /FD /c
-MTL=midl.exe
 # ADD BASE MTL /nologo /D "_DEBUG" /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
-RSC=rc.exe
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
 BSC32=bscmake.exe
@@ -86,72 +80,8 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /debug /machine:I386
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winmm.lib /nologo /subsystem:windows /dll /incremental:no /map /debug /machine:I386 /nodefaultlib:"libc"
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winmm.lib /nologo /subsystem:windows /dll /incremental:no /map /debug /machine:I386 /nodefaultlib:"libc" /out:"..\ref_soft_debug.dll"
 # SUBTRACT LINK32 /profile /nodefaultlib
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 1
-# PROP BASE Output_Dir "Debug Alpha"
-# PROP BASE Intermediate_Dir "Debug Alpha"
-# PROP BASE Ignore_Export_Lib 0
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 1
-# PROP Output_Dir "..\DebugAxp"
-# PROP Intermediate_Dir ".\DebugAxp"
-# PROP Ignore_Export_Lib 0
-# PROP Target_Dir ""
-CPP=cl.exe
-# ADD BASE CPP /nologo /MTd /Gt0 /W3 /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /QA21164 /MTd /Gt0 /W3 /GX /Zi /Od /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "C_ONLY" /YX /FD /QAieee1 /c
-MTL=midl.exe
-# ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
-# ADD MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
-RSC=rc.exe
-# ADD BASE RSC /l 0x409 /d "_DEBUG"
-# ADD RSC /l 0x409 /d "_DEBUG"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LINK32=link.exe
-# ADD BASE LINK32 winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:windows /dll /debug /machine:ALPHA /nodefaultlib:"libc"
-# SUBTRACT BASE LINK32 /nodefaultlib
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winmm.lib /nologo /subsystem:windows /dll /debug /machine:ALPHA /nodefaultlib:"libc"
-# SUBTRACT LINK32 /nodefaultlib
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-# PROP BASE Use_MFC 0
-# PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "ref_soft"
-# PROP BASE Intermediate_Dir "ref_soft"
-# PROP BASE Ignore_Export_Lib 0
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 0
-# PROP Use_Debug_Libraries 0
-# PROP Output_Dir "..\ReleaseAXP"
-# PROP Intermediate_Dir ".\ReleaseAXP"
-# PROP Ignore_Export_Lib 0
-# PROP Target_Dir ""
-CPP=cl.exe
-# ADD BASE CPP /nologo /MT /Gt0 /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /YX /FD /c
-# ADD CPP /nologo /QA21164 /MT /Gt0 /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "C_ONLY" /YX /FD /QAieee1 /c
-# SUBTRACT CPP /Z<none> /Fr
-MTL=midl.exe
-# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
-# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
-RSC=rc.exe
-# ADD BASE RSC /l 0x409 /d "NDEBUG"
-# ADD RSC /l 0x409 /d "NDEBUG"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LINK32=link.exe
-# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib /nologo /subsystem:windows /dll /machine:ALPHA
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winmm.lib /nologo /subsystem:windows /dll /machine:ALPHA
-# SUBTRACT LINK32 /debug
 
 !ENDIF 
 
@@ -159,34 +89,19 @@ LINK32=link.exe
 
 # Name "ref_soft - Win32 Release"
 # Name "ref_soft - Win32 Debug"
-# Name "ref_soft - Win32 Debug Alpha"
-# Name "ref_soft - Win32 Release Alpha"
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;hpj;bat;for;f90"
 # Begin Source File
 
 SOURCE=..\game\q_shared.c
+DEP_CPP_Q_SHA=\
+	"..\game\q_shared.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_Q_SHA=\
-	"..\game\q_shared.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_Q_SHA=\
-	"..\game\q_shared.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_Q_SHA=\
-	"..\game\q_shared.h"\
-	
 
 !ENDIF 
 
@@ -194,35 +109,16 @@ DEP_CPP_Q_SHA=\
 # Begin Source File
 
 SOURCE=..\win32\q_shwin.c
+DEP_CPP_Q_SHW=\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	"..\win32\winquake.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_Q_SHW=\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	"..\win32\winquake.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_Q_SHW=\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	"..\win32\winquake.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_Q_SHW=\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	"..\win32\winquake.h"\
-	
 
 !ENDIF 
 
@@ -230,41 +126,18 @@ DEP_CPP_Q_SHW=\
 # Begin Source File
 
 SOURCE=.\r_aclip.c
+DEP_CPP_R_ACL=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_ACL=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_ACL=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_ACL=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -276,7 +149,7 @@ SOURCE=.\r_aclipa.asm
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
 # Begin Custom Build
-OutDir=.\..\release
+OutDir=.\..\ 
 InputPath=.\r_aclipa.asm
 InputName=r_aclipa
 
@@ -288,7 +161,7 @@ InputName=r_aclipa
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
 
 # Begin Custom Build
-OutDir=.\..\debug
+OutDir=.\..\ 
 InputPath=.\r_aclipa.asm
 InputName=r_aclipa
 
@@ -297,58 +170,25 @@ InputName=r_aclipa
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-# PROP Exclude_From_Build 1
-
 !ENDIF 
 
 # End Source File
 # Begin Source File
 
 SOURCE=.\r_alias.c
+DEP_CPP_R_ALI=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\anorms.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_ALI=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\anorms.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_ALI=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\anorms.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_ALI=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\anorms.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -356,41 +196,18 @@ DEP_CPP_R_ALI=\
 # Begin Source File
 
 SOURCE=.\r_bsp.c
+DEP_CPP_R_BSP=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_BSP=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_BSP=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_BSP=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -398,41 +215,18 @@ DEP_CPP_R_BSP=\
 # Begin Source File
 
 SOURCE=.\r_draw.c
+DEP_CPP_R_DRA=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_DRA=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_DRA=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_DRA=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -444,7 +238,7 @@ SOURCE=.\r_draw16.asm
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
 # Begin Custom Build
-OutDir=.\..\release
+OutDir=.\..\ 
 InputPath=.\r_draw16.asm
 InputName=r_draw16
 
@@ -456,7 +250,7 @@ InputName=r_draw16
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
 
 # Begin Custom Build
-OutDir=.\..\debug
+OutDir=.\..\ 
 InputPath=.\r_draw16.asm
 InputName=r_draw16
 
@@ -464,14 +258,6 @@ InputName=r_draw16
 	ml /c /Cp /coff /Fo$(OUTDIR)\$(InputName).obj /Zm /Zi $(InputPath)
 
 # End Custom Build
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-# PROP Exclude_From_Build 1
 
 !ENDIF 
 
@@ -483,7 +269,7 @@ SOURCE=.\r_drawa.asm
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
 # Begin Custom Build
-OutDir=.\..\release
+OutDir=.\..\ 
 InputPath=.\r_drawa.asm
 InputName=r_drawa
 
@@ -495,7 +281,7 @@ InputName=r_drawa
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
 
 # Begin Custom Build
-OutDir=.\..\debug
+OutDir=.\..\ 
 InputPath=.\r_drawa.asm
 InputName=r_drawa
 
@@ -504,55 +290,24 @@ InputName=r_drawa
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-# PROP Exclude_From_Build 1
-
 !ENDIF 
 
 # End Source File
 # Begin Source File
 
 SOURCE=.\r_edge.c
+DEP_CPP_R_EDG=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_EDG=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_EDG=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_EDG=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -564,7 +319,7 @@ SOURCE=.\r_edgea.asm
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
 # Begin Custom Build
-OutDir=.\..\release
+OutDir=.\..\ 
 InputPath=.\r_edgea.asm
 InputName=r_edgea
 
@@ -576,7 +331,7 @@ InputName=r_edgea
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
 
 # Begin Custom Build
-OutDir=.\..\debug
+OutDir=.\..\ 
 InputPath=.\r_edgea.asm
 InputName=r_edgea
 
@@ -585,55 +340,24 @@ InputName=r_edgea
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-# PROP Exclude_From_Build 1
-
 !ENDIF 
 
 # End Source File
 # Begin Source File
 
 SOURCE=.\r_image.c
+DEP_CPP_R_IMA=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_IMA=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_IMA=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_IMA=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -641,41 +365,18 @@ DEP_CPP_R_IMA=\
 # Begin Source File
 
 SOURCE=.\r_light.c
+DEP_CPP_R_LIG=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_LIG=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_LIG=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_LIG=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -683,41 +384,18 @@ DEP_CPP_R_LIG=\
 # Begin Source File
 
 SOURCE=.\r_main.c
+DEP_CPP_R_MAI=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_MAI=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_MAI=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_MAI=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -725,41 +403,18 @@ DEP_CPP_R_MAI=\
 # Begin Source File
 
 SOURCE=.\r_misc.c
+DEP_CPP_R_MIS=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_MIS=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_MIS=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_MIS=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -767,41 +422,18 @@ DEP_CPP_R_MIS=\
 # Begin Source File
 
 SOURCE=.\r_model.c
+DEP_CPP_R_MOD=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_MOD=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_MOD=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_MOD=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -809,41 +441,18 @@ DEP_CPP_R_MOD=\
 # Begin Source File
 
 SOURCE=.\r_part.c
+DEP_CPP_R_PAR=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_PAR=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_PAR=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_PAR=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -851,41 +460,18 @@ DEP_CPP_R_PAR=\
 # Begin Source File
 
 SOURCE=.\r_poly.c
+DEP_CPP_R_POL=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_POL=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_POL=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_POL=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -897,7 +483,7 @@ SOURCE=.\r_polysa.asm
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
 # Begin Custom Build
-OutDir=.\..\release
+OutDir=.\..\ 
 InputPath=.\r_polysa.asm
 InputName=r_polysa
 
@@ -909,7 +495,7 @@ InputName=r_polysa
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
 
 # Begin Custom Build
-OutDir=.\..\debug
+OutDir=.\..\ 
 InputPath=.\r_polysa.asm
 InputName=r_polysa
 
@@ -918,57 +504,26 @@ InputName=r_polysa
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
 !ENDIF 
 
 # End Source File
 # Begin Source File
 
 SOURCE=.\r_polyse.c
+DEP_CPP_R_POLY=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\adivtab.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	".\rand1k.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_POLY=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\adivtab.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	".\rand1k.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_POLY=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\adivtab.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	".\rand1k.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_POLY=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\adivtab.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	".\rand1k.h"\
-	
 
 !ENDIF 
 
@@ -976,41 +531,18 @@ DEP_CPP_R_POLY=\
 # Begin Source File
 
 SOURCE=.\r_rast.c
+DEP_CPP_R_RAS=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_RAS=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_RAS=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_RAS=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -1018,41 +550,18 @@ DEP_CPP_R_RAS=\
 # Begin Source File
 
 SOURCE=.\r_scan.c
+DEP_CPP_R_SCA=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_SCA=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_SCA=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_SCA=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -1064,7 +573,7 @@ SOURCE=.\r_scana.asm
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
 # Begin Custom Build
-OutDir=.\..\release
+OutDir=.\..\ 
 InputPath=.\r_scana.asm
 InputName=r_scana
 
@@ -1076,7 +585,7 @@ InputName=r_scana
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
 
 # Begin Custom Build
-OutDir=.\..\debug
+OutDir=.\..\ 
 InputPath=.\r_scana.asm
 InputName=r_scana
 
@@ -1084,14 +593,6 @@ InputName=r_scana
 	ml /c /Cp /coff /Fo$(OUTDIR)\$(InputName).obj /Zm /Zi $(InputPath)
 
 # End Custom Build
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-# PROP Exclude_From_Build 1
 
 !ENDIF 
 
@@ -1103,7 +604,7 @@ SOURCE=.\r_spr8.asm
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
 # Begin Custom Build
-OutDir=.\..\release
+OutDir=.\..\ 
 InputPath=.\r_spr8.asm
 InputName=r_spr8
 
@@ -1115,7 +616,7 @@ InputName=r_spr8
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
 
 # Begin Custom Build
-OutDir=.\..\debug
+OutDir=.\..\ 
 InputPath=.\r_spr8.asm
 InputName=r_spr8
 
@@ -1124,55 +625,24 @@ InputName=r_spr8
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-# PROP Exclude_From_Build 1
-
 !ENDIF 
 
 # End Source File
 # Begin Source File
 
 SOURCE=.\r_sprite.c
+DEP_CPP_R_SPR=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_SPR=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_SPR=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_SPR=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -1180,41 +650,18 @@ DEP_CPP_R_SPR=\
 # Begin Source File
 
 SOURCE=.\r_surf.c
+DEP_CPP_R_SUR=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_R_SUR=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_R_SUR=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_R_SUR=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -1226,7 +673,7 @@ SOURCE=.\r_surf8.asm
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
 # Begin Custom Build
-OutDir=.\..\release
+OutDir=.\..\ 
 InputPath=.\r_surf8.asm
 InputName=r_surf8
 
@@ -1238,7 +685,7 @@ InputName=r_surf8
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
 
 # Begin Custom Build
-OutDir=.\..\debug
+OutDir=.\..\ 
 InputPath=.\r_surf8.asm
 InputName=r_surf8
 
@@ -1246,14 +693,6 @@ InputName=r_surf8
 	ml /c /Cp /coff /Fo$(OUTDIR)\$(InputName).obj /Zm /Zi $(InputPath)
 
 # End Custom Build
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-# PROP Exclude_From_Build 1
 
 !ENDIF 
 
@@ -1265,7 +704,7 @@ SOURCE=.\r_varsa.asm
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
 # Begin Custom Build
-OutDir=.\..\release
+OutDir=.\..\ 
 InputPath=.\r_varsa.asm
 InputName=r_varsa
 
@@ -1277,7 +716,7 @@ InputName=r_varsa
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
 
 # Begin Custom Build
-OutDir=.\..\debug
+OutDir=.\..\ 
 InputPath=.\r_varsa.asm
 InputName=r_varsa
 
@@ -1286,58 +725,25 @@ InputName=r_varsa
 
 # End Custom Build
 
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-# PROP Exclude_From_Build 1
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-# PROP Exclude_From_Build 1
-
 !ENDIF 
 
 # End Source File
 # Begin Source File
 
 SOURCE=..\win32\rw_ddraw.c
+DEP_CPP_RW_DD=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	"..\win32\rw_win.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_RW_DD=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	"..\win32\rw_win.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_RW_DD=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	"..\win32\rw_win.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_RW_DD=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	"..\win32\rw_win.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -1345,44 +751,19 @@ DEP_CPP_RW_DD=\
 # Begin Source File
 
 SOURCE=..\win32\rw_dib.c
+DEP_CPP_RW_DI=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	"..\win32\rw_win.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_RW_DI=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	"..\win32\rw_win.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_RW_DI=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	"..\win32\rw_win.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_RW_DI=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	"..\win32\rw_win.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
@@ -1390,47 +771,20 @@ DEP_CPP_RW_DI=\
 # Begin Source File
 
 SOURCE=..\win32\rw_imp.c
+DEP_CPP_RW_IM=\
+	"..\client\ref.h"\
+	"..\game\q_shared.h"\
+	"..\qcommon\qcommon.h"\
+	"..\qcommon\qfiles.h"\
+	"..\win32\rw_win.h"\
+	"..\win32\winquake.h"\
+	".\r_local.h"\
+	".\r_model.h"\
+	
 
 !IF  "$(CFG)" == "ref_soft - Win32 Release"
 
-DEP_CPP_RW_IM=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	"..\win32\rw_win.h"\
-	"..\win32\winquake.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
 !ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug"
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Debug Alpha"
-
-DEP_CPP_RW_IM=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	"..\win32\rw_win.h"\
-	"..\win32\winquake.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
-
-!ELSEIF  "$(CFG)" == "ref_soft - Win32 Release Alpha"
-
-DEP_CPP_RW_IM=\
-	"..\client\ref.h"\
-	"..\game\q_shared.h"\
-	"..\qcommon\qcommon.h"\
-	"..\qcommon\qfiles.h"\
-	"..\win32\rw_win.h"\
-	"..\win32\winquake.h"\
-	".\r_local.h"\
-	".\r_model.h"\
-	
 
 !ENDIF 
 
